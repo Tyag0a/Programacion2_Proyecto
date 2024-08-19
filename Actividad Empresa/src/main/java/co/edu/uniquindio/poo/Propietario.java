@@ -9,15 +9,15 @@ public class Propietario {
     String cedula;
     String email;
     String telefono;
-    Vehiculo vehiculo;
+    Vehiculo vehiculoAsociado;
     public Collection<Vehiculo> vehiculosAsociados;
 
-    public Propietario(String nombre, String cedula, String email, String telefono, Vehiculo vehiculo) {
+    public Propietario(String nombre, String cedula, String email, String telefono, Vehiculo vehiculoAsociado) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.email = email;
         this.telefono = telefono;
-        this.vehiculo = vehiculo;
+        this.vehiculoAsociado = vehiculoAsociado;
         this.vehiculosAsociados = new LinkedList<>();
     }
     public String getNombre() {
@@ -49,5 +49,19 @@ public class Propietario {
     }
     public void setVehiculosAsociados(Collection <Vehiculo> vehiculos) {
         this.vehiculosAsociados = vehiculos;
+    }
+
+    public Vehiculo getVehiculoAsociado() {
+        return vehiculoAsociado;
+    }
+
+    public void setVehiculoAsociado(Vehiculo vehiculoAsociado) {
+        this.vehiculoAsociado = vehiculoAsociado;
+    }
+
+    public void asociarVehiculo_Propietario(Vehiculo vehiculo) {
+        this.vehiculoAsociado = vehiculo;
+        this.vehiculosAsociados.add(vehiculo);
+        vehiculo.setPropietarioAsociado(this);
     }
 }

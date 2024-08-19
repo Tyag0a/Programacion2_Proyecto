@@ -9,15 +9,15 @@ public class Vehiculo {
     String modelo;
     String placa;
     String color;
-    Propietario propietario;
+    Propietario propietarioAsociado;
     public Collection<Propietario> propietarios;
 
-    public Vehiculo(String marca, String modelo, String placa, String color, Propietario propietario) {
+    public Vehiculo(String marca, String modelo, String placa, String color, Propietario propietarioAsociado) {
         this.marca = marca;
         this.modelo = modelo;
         this.placa = placa;
         this.color = color;
-        this.propietario = propietario;
+        this.propietarioAsociado = propietarioAsociado;
         this.propietarios = new LinkedList<>();
 
     }
@@ -46,5 +46,21 @@ public class Vehiculo {
     }
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public Propietario getPropietarioAsociado() {
+        return propietarioAsociado;
+    }
+
+    public void setPropietarioAsociado(Propietario propietarioAsociado) {
+        this.propietarioAsociado = propietarioAsociado;
+    }
+
+    public void setPropietarios(Collection<Propietario> propietarios) {
+        this.propietarios = propietarios;
+    }
+
+    public Collection<Propietario> getPropietarios() {
+        return propietarios;
     }
 }
