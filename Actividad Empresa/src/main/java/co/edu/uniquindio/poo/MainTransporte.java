@@ -19,6 +19,7 @@ public class MainTransporte {
             System.out.println("2. Registrar un vehículo y su propietario y asociarlos");
             System.out.println("3. Obtener el número de usuarios de un vehículo de transporte por la placa");
             System.out.println("4. Obtener el número de usuarios mayores de 40 años");
+            System.out.println("5. Contar usuarios en un rango de edad específico");
             System.out.println("0. Salir");
             System.out.print("\nSeleccione una opcion: ");
             opcion = scanner.nextInt();
@@ -36,6 +37,9 @@ public class MainTransporte {
                     break;
                 case 4:
                     mostrarNumeroUsuariosMayoresDe40(empresa);
+                    break;
+                case 5:
+                    mostrarNumeroUsuariosEnRangoDeEdad(empresa, scanner); 
                     break;
                 case 0:
                     System.out.println("\nSaliendo...");
@@ -148,6 +152,21 @@ public class MainTransporte {
     private static void mostrarNumeroUsuariosMayoresDe40(EmpresaTransporte empresa) {
         int numeroUsuarios = empresa.obtenerNumeroUsuariosMayoresDe40();
         System.out.println("Número de usuarios mayores de 40 años: " + numeroUsuarios);
+    }
+    
+    /**
+     * Metodo para permitir el uso del metodo contarUsuarios en RangoEdad
+     * @param empresa
+     * @param scanner
+     */
+    private static void mostrarNumeroUsuariosEnRangoDeEdad(EmpresaTransporte empresa, Scanner scanner) {
+        System.out.print("Ingrese la edad mínima: ");
+        int edadMin = scanner.nextInt();
+        System.out.print("Ingrese la edad máxima: ");
+        int edadMax = scanner.nextInt();
+        
+        int numeroUsuarios = empresa.contarUsuariosEnRangoDeEdad(edadMin, edadMax);
+        System.out.println("Número de usuarios en el rango de edad de " + edadMin + " a " + edadMax + ": " + numeroUsuarios);
     }
 
 }

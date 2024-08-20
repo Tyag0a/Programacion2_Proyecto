@@ -84,4 +84,21 @@ public class EmpresaTransporte {
 
         return contador;
     }
+    
+    /**
+     * Metodo para obtener el numero de usuarios que se encuentran en un determinado rango de edad
+     * @param edadMin
+     * @param edadMax
+     * @return
+     */
+    public int contarUsuariosEnRangoDeEdad(int edadMin, int edadMax) {
+        int contador = 0;
+        
+        for (Usuario usuario : usuarios) {
+            if (usuario.getEdad() >= edadMin && usuario.getEdad() <= edadMax) {
+                contador++;
+            }
+        }
+         return contador;
+    }
 }
