@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo;
 
 import java.util.Scanner;
+import java.util.Collection;
 
 public class MainTransporte {
     public static void main(String[] args) {
@@ -20,6 +21,7 @@ public class MainTransporte {
             System.out.println("3. Obtener el número de usuarios de un vehículo de transporte por la placa");
             System.out.println("4. Obtener el número de usuarios mayores de 40 años");
             System.out.println("5. Contar usuarios en un rango de edad específico");
+            System.out.println("6. Mostrar usuarios que superan un valor de peso específico");
             System.out.println("0. Salir");
             System.out.print("\nSeleccione una opcion: ");
             opcion = scanner.nextInt();
@@ -40,6 +42,9 @@ public class MainTransporte {
                     break;
                 case 5:
                     mostrarNumeroUsuariosEnRangoDeEdad(empresa, scanner); 
+                    break;
+                case 6:
+                    mostrarUsuariosConPesoMayorA(empresa, scanner);
                     break;
                 case 0:
                     System.out.println("\nSaliendo...");
@@ -145,7 +150,7 @@ public class MainTransporte {
 
     /**
      * Metodo para facilitar el uso del metodo obtenerNumeroUsuariosMayoresDe40 en consola
-     * Case 3
+     * Case 4
      * @param {EmpresaTransporte} empresa
      */
 
@@ -156,8 +161,9 @@ public class MainTransporte {
     
     /**
      * Metodo para permitir el uso del metodo contarUsuarios en RangoEdad
-     * @param empresa
-     * @param scanner
+     * Case 5
+     * @param {EmpresaTransporte} empresa
+     * @param {Scanner} scanner
      */
     private static void mostrarNumeroUsuariosEnRangoDeEdad(EmpresaTransporte empresa, Scanner scanner) {
         System.out.print("Ingrese la edad mínima: ");
@@ -167,6 +173,28 @@ public class MainTransporte {
         
         int numeroUsuarios = empresa.contarUsuariosEnRangoDeEdad(edadMin, edadMax);
         System.out.println("Número de usuarios en el rango de edad de " + edadMin + " a " + edadMax + ": " + numeroUsuarios);
+    }
+
+    /**
+     * Metodo para mostrar los usuarios que superan un valor de peso específico.
+     * Case 6
+     * @param {EmpresaTransporte} empresa
+     * @param {Scanner} scanner
+     */
+    private static void mostrarUsuariosConPesoMayorA(EmpresaTransporte empresa, Scanner scanner) {
+        System.out.print("Ingrese el valor de peso minimo: ");
+        double peso = scanner.nextDouble();
+
+        Collection<Usuario> usuariosConPesoMayor = empresa.obtenerUsuariosConPesoMayorA(peso);
+
+        if (usuariosConPesoMayor.isEmpty()) { //Utilizamos "isEmpty" para verificar si la coleccion esta vacia
+            System.out.println("\nNo hay usuarios con un peso mayor a " + peso + ".");
+        } else {
+            System.out.println("\nUsuarios con un peso mayor a " + peso + ":");
+            for (Usuario usuario : usuariosConPesoMayor) {
+                System.out.println("Nombre: " + usuario.getNombre() + ", Edad: " + usuario.getEdad() + ", Peso: " + usuario.getPeso());
+            }
+        }
     }
 
 }

@@ -54,7 +54,7 @@ public class EmpresaTransporte {
      * Metodo para obtener el numero de usuarios de un vehiculo de transporte por la placa.
      *
      * @param {string} placa.
-     * @returns {Object} - numero de usuarios por vehiculo.
+     * @returns {int} - numero de usuarios por vehiculo.
      */
 
     public int obtenerNumeroUsuariosPorVehiculo(String placa) {
@@ -68,7 +68,7 @@ public class EmpresaTransporte {
 
     /**
      * Metodo para obtener el número de usuarios que son mayores de 40 años.
-     * @return int - El número de usuarios mayores de 40 años.
+     * @return {int} - El número de usuarios mayores de 40 años.
      */
 
     public int obtenerNumeroUsuariosMayoresDe40() {
@@ -87,9 +87,9 @@ public class EmpresaTransporte {
     
     /**
      * Metodo para obtener el numero de usuarios que se encuentran en un determinado rango de edad
-     * @param edadMin
-     * @param edadMax
-     * @return
+     * @param {int} edadMin
+     * @param {int} edadMax
+     * @return {int} - Numero de usuarios en un rango de edad
      */
     public int contarUsuariosEnRangoDeEdad(int edadMin, int edadMax) {
         int contador = 0;
@@ -100,5 +100,24 @@ public class EmpresaTransporte {
             }
         }
          return contador;
+    }
+
+    /**
+     * Metodo para obtener la colección de usuarios que superan un valor de peso dado.
+     *
+     * @param {int} peso
+     * @return {Collection} coleccion de usuarios que tienen un peso mayor al valor dado.
+     */
+
+    public Collection<Usuario> obtenerUsuariosConPesoMayorA(double peso) {
+        Collection<Usuario> usuariosConPesoMayor = new LinkedList<>();
+
+        for (Usuario usuario : usuarios) {
+            if (usuario.getPeso() > peso) {
+                usuariosConPesoMayor.add(usuario);
+            }
+        }
+
+        return usuariosConPesoMayor;
     }
 }
