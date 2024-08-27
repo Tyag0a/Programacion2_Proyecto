@@ -2,5 +2,5 @@ package co.edu.uniquindio.poo;
 
 public interface GestionInventario {
 
-    public void gestionarInventario();
+    public void gestionarInventario(Biblioteca biblioteca);
 }
