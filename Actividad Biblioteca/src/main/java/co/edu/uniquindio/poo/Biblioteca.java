@@ -3,6 +3,11 @@ package co.edu.uniquindio.poo;
 import java.util.Collection;
 import java.util.LinkedList;
 
+//Implementacion SOLID en la clase:
+//
+//-Principio responsabilidad unica, esta encargada unicamente de manejar las listas de miembros,
+// libros, empleados y prestamos, ademas de tener acceso a modificiaciones de estas.
+
 public class Biblioteca {
 
     String nombre;

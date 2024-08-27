@@ -3,6 +3,11 @@ package co.edu.uniquindio.poo;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+//Implementacion SOLID en la clase:
+//
+//-Responsabilidad unica, relacionar un miembro y un libro, ademas encapsular la informacion
+//del prestamo.
+
 public class Prestamo {
 
     LocalDate fechaPrestamo;

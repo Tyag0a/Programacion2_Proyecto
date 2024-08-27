@@ -3,6 +3,11 @@ package co.edu.uniquindio.poo;
 import java.util.Collection;
 import java.util.LinkedList;
 
+//Implementacion SOLID en la clase:
+//
+//-Responsabilidad unica, maneja la información de los miembros y sus préstamos activos,
+// lo que lo convierte en una clase con una responsabilidad clara.
+
 public class Miembro {
 
     String nombre;
